@@ -1,15 +1,17 @@
 package main.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import main.db.QuartzJDBCTemplate;
 import main.form.QuartzForm;
 
+import org.quartz.SchedulerException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,14 +37,17 @@ public class JobController {
 	      }
 		return new ModelAndView("ViewJob", "jobs", quartzForm);
 	}
-
-	/*@RequestMapping(method=RequestMethod.GET)
-	public String showForm(ModelMap model){
-		QuartzForm form = new QuartzForm();
-		model.addAttribute("jobs", form);
-		return "ViewJob";
-	}*/
-
+	
+	
+	@RequestMapping(method=RequestMethod.POST)
+	public String processForm(HttpServletRequest req,HttpServletResponse resp) throws SchedulerException{
+		System.out.println("inside method");
+		String data=req.getParameter("data");
+		System.out.println(data);
+		String n =data.substring(data.indexOf(">"), data.indexOf("</td>"));
+		System.out.println(n);
+		return "";
+	}
 
 /*	public List<QuartzForm> getJobList(){
 	      ApplicationContext context = 

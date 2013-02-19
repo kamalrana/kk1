@@ -76,8 +76,7 @@ public class QuartzController{
 		/*Scheduler scheduler = new StdSchedulerFactory(
 				"C:\\Users\\kamal\\git\\kk1\\jdbc\\quartz_JDBC\\WebContent\\WEB-INF\\quartz_JDBC.properties")
 				.getScheduler();*/
-Scheduler scheduler = new StdSchedulerFactory("E:\\usr\\local\\home\\git\\kk1\\quartz_JDBC\\WebContent\\WEB-INF\\quartz_JDBC.properties").getScheduler();
-    	//Scheduler scheduler = new StdSchedulerFactory().getScheduler();
+Scheduler scheduler = new StdSchedulerFactory("quartz_JDBC.properties").getScheduler();
     	scheduler.start();
     	scheduler.scheduleJob(job1, trigger);
 			

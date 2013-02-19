@@ -22,6 +22,7 @@
 				});
 			} );
 var oTable;
+var temp;
 			$(document).ready(function() {
 				/* Add a click handler to the rows - this could be used as a callback */
 				$("#example tbody tr").click( function( e ) {
@@ -40,6 +41,19 @@ var oTable;
 					if ( anSelected.length !== 0 ) {
 						oTable.fnDeleteRow( anSelected[0] );
 					}
+					  $.ajax({  
+						    type: "POST",  
+						    url: "Jobs.html",  
+						    data: "data=" + temp,  
+						    success: function(response){  
+						      // we have the response  
+						     alert('sucess');
+						    },  
+						    error: function(e){  
+						      alert('Error: ' + e);  
+						    }  
+						  });
+					
 				} );
 				
 				/* Init the table */
@@ -52,23 +66,21 @@ var oTable;
 			{
 				return oTableLocal.$('tr.row_selected');
 			}
-		</script>
-		</script>
-		
-		<script type="text/javascript">
-/* var cols=new Array();
+
+			/* var cols=new Array();
 cols[0]="A";
 cols[1]="B";
 cols[2]="C"; */
 function getData(_row){
-   var _temp=document.getElementById("b"+_row).innerHTML;
-	alert(_temp);
+   temp=document.getElementById("b"+_row).innerHTML;
 }
 </script>
 	</head>
+	
 	<body id="dt_example">
 		<div id="container">
-<p><a href="javascript:void(0)" id="delete">Delete selected row</a></p>
+<!-- <p><a href="javascript:void(0)" id="delete">Delete selected row</a></p> -->
+<p><button type="button" id="delete">Delete</button></p>
 <table cellpadding="0" cellspacing="0" border="1" class="display" id="example">
 	<thead>
 		<tr>
@@ -96,7 +108,7 @@ function getData(_row){
 	}
 	%>
 <tr id="b3" onclick="getData(3)" class="gradeC">
-<td><a href="FormFill.html">first</a></td>
+<td>first</td>
 <td>controllers.RunMeJob</td>
 <td>first</td>
 <td>first</td>
