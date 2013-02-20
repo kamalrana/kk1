@@ -67,12 +67,14 @@ var temp;
 				return oTableLocal.$('tr.row_selected');
 			}
 
-			/* var cols=new Array();
-cols[0]="A";
-cols[1]="B";
-cols[2]="C"; */
 function getData(_row){
-   temp=document.getElementById("b"+_row).innerHTML;
+	var jobName=document.getElementById("a"+_row).innerHTML;
+	var Class=document.getElementById("b"+_row).innerHTML;
+	var Trigger=document.getElementById("c"+_row).innerHTML;
+	var Group=document.getElementById("d"+_row).innerHTML;
+	var Start=document.getElementById("e"+_row).innerHTML;
+	var End=document.getElementById("f"+_row).innerHTML;
+	alert("jobName : "+jobName+" -ClassName : "+Class+" -trigger : "+Trigger+" -Group: "+Group+" -start : "+Start);
 }
 </script>
 	</head>
@@ -97,39 +99,39 @@ function getData(_row){
 	ArrayList<QuartzForm> items=(ArrayList<QuartzForm>)request.getAttribute("jobs");
 	int i=0;
 	for (QuartzForm job : items) {
-		out.println("<tr class=\"gradeC\""+ " onclick="+"\"getData"+"("+ i + ")\""+ " id="+"\"b"+ i++ + "\""+">");
-		out.println("<td>"+job.getJobName()+"</td>");
-        out.println("<td>"+job.getJobClass()+"</td>");
-        out.println("<td>"+job.getGroup()+"</td>");
-        out.println("<td>"+job.getTriggerName()+"</td>");
-        out.println("<td>"+job.getStartDate()+"</td>");
-        out.println("<td>"+job.getEndDate()+"</td>");
+		out.println("<tr class=\"gradeC\""+ " onclick="+"\"getData"+"("+ i++ + ")\""+">");
+		out.println("<td id=\"a"+i+"\">"+job.getJobName()+"</td>");
+        out.println("<td id=\"b"+i+"\">"+job.getJobClass()+"</td>");
+        out.println("<td id=\"c"+i+"\">"+job.getGroup()+"</td>");
+        out.println("<td id=\"d"+i+"\">"+job.getTriggerName()+"</td>");
+        out.println("<td id=\"e"+i+"\">"+job.getStartDate()+"</td>");
+        out.println("<td id=\"f"+i+"\">"+job.getEndDate()+"</td>");
         out.println("</tr>");
 	}
 	%>
-<tr id="b3" onclick="getData(3)" class="gradeC">
-<td>first</td>
-<td>controllers.RunMeJob</td>
-<td>first</td>
-<td>first</td>
-<td>1361089680000</td>
-<td>1361176020000</td>
+<tr onclick="getData(3)" class="gradeC">
+<td id="a3">firstsssssssss</td>
+<td id="b3">controllers.RunMeJob</td>
+<td id="c3">first</td>
+<td id="d3">first</td>
+<td id="e3">1361089680000</td>
+<td id="f3">1361176020000</td>
 </tr>
-<tr id="b4" onclick="getData(4)" class="gradeC">
-<td>first</td>
-<td>controllers.RunMeJob</td>
-<td>first</td>
-<td>first</td>
-<td>1361089680000</td>
-<td>1361176020000</td>
+<tr onclick="getData(4)" class="gradeC">
+<td id="a4">firstddddd</td>
+<td id="b4">controllers.RunMeJob</td>
+<td id="c4">first</td>
+<td id="d4">first</td>
+<td id="e4">1361089680000</td>
+<td id="f4">1361176020000</td>
 </tr>
 <tr id="b5" onclick="getData(5)" class="gradeC">
-<td>first</td>
-<td>controllers.RunMeJob</td>
-<td>first</td>
-<td>first</td>
-<td>1361089680000</td>
-<td>1361176020000</td>
+<td id="a3">first</td>
+<td id="a3">controllers.RunMeJob</td>
+<td id="a3">first</td>
+<td id="a3">first</td>
+<td id="a3">1361089680000</td>
+<td id="a3">1361176020000</td>
 </tr>		
 <!-- <tr id="b6" onclick="getData(3)" class="gradeC">
 <td>first</td>

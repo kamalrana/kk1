@@ -44,8 +44,8 @@ public class JobController {
 		System.out.println("inside method");
 		String data=req.getParameter("data");
 		System.out.println(data);
-		String n =data.substring(data.indexOf(">"), data.indexOf("</td>"));
-		System.out.println(n);
+		/*String n =data.substring(data.indexOf(">"), data.indexOf("</td>"));
+		System.out.println(n);*/
 		return "";
 	}
 
