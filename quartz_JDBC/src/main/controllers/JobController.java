@@ -42,8 +42,15 @@ public class JobController {
 	@RequestMapping(method=RequestMethod.POST)
 	public String processForm(HttpServletRequest req,HttpServletResponse resp) throws SchedulerException{
 		System.out.println("inside method");
-		String data=req.getParameter("data");
-		System.out.println(data);
+		System.out.println("param : "+req.getParameterNames().toString());
+		String jobName=req.getParameter("data");
+		String Class=req.getParameter("name");
+		System.out.println("here is : "+jobName+Class);
+		String Trigger=req.getParameter("Trigger");
+		String Group=req.getParameter("Group");
+		String Start=req.getParameter("Start");
+		String End=req.getParameter("End");
+		System.out.println("jobName : "+jobName+" -ClassName : "+Class+" -trigger : "+Trigger+" -Group: "+Group+" -start : "+Start);
 		/*String n =data.substring(data.indexOf(">"), data.indexOf("</td>"));
 		System.out.println(n);*/
 		return "";

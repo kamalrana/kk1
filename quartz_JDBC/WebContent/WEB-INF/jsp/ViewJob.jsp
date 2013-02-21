@@ -22,7 +22,8 @@
 				});
 			} );
 var oTable;
-var temp;
+var Start;
+var End;
 			$(document).ready(function() {
 				/* Add a click handler to the rows - this could be used as a callback */
 				$("#example tbody tr").click( function( e ) {
@@ -44,7 +45,7 @@ var temp;
 					  $.ajax({  
 						    type: "POST",  
 						    url: "Jobs.html",  
-						    data: "data=" + temp,  
+						    data: "data=" + Start+"&name="+End,
 						    success: function(response){  
 						      // we have the response  
 						     alert('sucess');
@@ -72,8 +73,8 @@ function getData(_row){
 	var Class=document.getElementById("b"+_row).innerHTML;
 	var Trigger=document.getElementById("c"+_row).innerHTML;
 	var Group=document.getElementById("d"+_row).innerHTML;
-	var Start=document.getElementById("e"+_row).innerHTML;
-	var End=document.getElementById("f"+_row).innerHTML;
+	Start=document.getElementById("e"+_row).innerHTML;
+	End=document.getElementById("f"+_row).innerHTML;
 	alert("jobName : "+jobName+" -ClassName : "+Class+" -trigger : "+Trigger+" -Group: "+Group+" -start : "+Start);
 }
 </script>
