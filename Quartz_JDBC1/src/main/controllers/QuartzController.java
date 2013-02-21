@@ -5,6 +5,9 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Date;
 
 import main.form.QuartzForm;
@@ -24,7 +27,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping(value="/FormFill.html")
 public class QuartzController{
-	
+	public static Scheduler scheduler; 
+	static{
+		try {
+			scheduler = new StdSchedulerFactory("quartz_JDBC.properties").getScheduler();
+			scheduler.start();
+			PrintWriter out = new PrintWriter(new BufferedWriter(
+					new FileWriter("C:\\Users\\kamal\\Music\\kk.txt", true)));
+			out.println("scheduler started");
+			out.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
+	}
+
 	@RequestMapping(method=RequestMethod.GET)
 	public String showForm(ModelMap model){
 		QuartzForm form = new QuartzForm();
@@ -76,8 +93,7 @@ public class QuartzController{
 		/*Scheduler scheduler = new StdSchedulerFactory(
 				"C:\\Users\\kamal\\git\\kk1\\jdbc\\quartz_JDBC\\WebContent\\WEB-INF\\quartz_JDBC.properties")
 				.getScheduler();*/
-Scheduler scheduler = new StdSchedulerFactory("quartz_JDBC.properties").getScheduler();
-    	scheduler.start();
+
     	scheduler.scheduleJob(job1, trigger);
 			
 		return "FormFill";

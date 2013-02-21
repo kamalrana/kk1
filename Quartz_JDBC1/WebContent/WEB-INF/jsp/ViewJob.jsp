@@ -103,8 +103,8 @@ function getData(_row){
 		out.println("<tr class=\"gradeC\""+ " onclick="+"\"getData"+"("+ i + ")\""+">");
 		out.println("<td id=\"a"+i+"\">"+job.getJobName()+"</td>");
         out.println("<td id=\"b"+i+"\">"+job.getJobClass()+"</td>");
-        out.println("<td id=\"c"+i+"\">"+job.getGroup()+"</td>");
-        out.println("<td id=\"d"+i+"\">"+job.getTriggerName()+"</td>");
+        out.println("<td id=\"c"+i+"\">"+job.getTriggerName()+"</td>");
+        out.println("<td id=\"d"+i+"\">"+job.getGroup()+"</td>");
         out.println("<td id=\"e"+i+"\">"+job.getStartDate()+"</td>");
 		out.println("<td id=\"f"+i+"\">"+job.getEndDate()+"</td>");i++;
         out.println("</tr>");
