@@ -34,6 +34,7 @@ public class JobController {
 	         System.out.println(", trigger name : " + job.getTriggerName());
 	         System.out.println(", start date : " + job.getStartDate());
 	         System.out.println(", end date : " + job.getEndDate());
+	         job.getJobKey();
 	      }
 		return new ModelAndView("ViewJob", "jobs", quartzForm);
 	}
@@ -59,24 +60,5 @@ System.out.println("jobName : "+jobName+" -ClassName : "+Class+" -trigger : "+Tr
 	      quartzJDBCTemplate.delete(jobName, Class, Trigger, Group);
 		return "";
 	}
-
-/*	public List<QuartzForm> getJobList(){
-	      ApplicationContext context = 
-	              new ClassPathXmlApplicationContext("Beans.xml");
-
-	      QuartzJDBCTemplate quartzJDBCTemplate = 
-	       (QuartzJDBCTemplate)context.getBean("quartzJDBCTemplate");
-	      List<QuartzForm> quartzForm = quartzJDBCTemplate.getJobs();
-	      for (QuartzForm job : quartzForm) {
-	         System.out.print("job name : " + job.getJobName() );
-	         System.out.print(", job Class : " + job.getJobClass() );
-	         System.out.println(", group : " + job.getGroup());
-	         System.out.println(", trigger name : " + job.getTriggerName());
-	         System.out.println(", start date : " + job.getStartDate());
-	         System.out.println(", end date : " + job.getEndDate());
-	      }
-
-		return quartzForm;
-	}*/
 	
 }

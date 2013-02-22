@@ -1,5 +1,7 @@
 package main.form;
 
+import org.quartz.JobKey;
+
 
 public class QuartzForm {
 	
@@ -14,7 +16,7 @@ public class QuartzForm {
 	private String startTime;
 	private String endDate;
 	private String endTime;
-	
+	private JobKey jobKey;
 	public String getJobName() {
 		return jobName;
 	}
@@ -80,6 +82,12 @@ public class QuartzForm {
 	}
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+	public JobKey getJobKey() {
+		return jobKey;
+	}
+	public void setJobKey(JobKey jobKey) {
+		this.jobKey = jobKey;
 	}
 	
 }

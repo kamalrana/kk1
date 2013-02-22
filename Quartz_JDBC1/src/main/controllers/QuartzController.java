@@ -5,14 +5,12 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.Date;
 
 import main.form.QuartzForm;
 
 import org.quartz.JobDetail;
+import org.quartz.JobKey;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.quartz.Trigger;
@@ -23,37 +21,41 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value="/FormFill.html")
 public class QuartzController{
 	public static Scheduler scheduler; 
 	static{
 		try {
 			scheduler = new StdSchedulerFactory("quartz_JDBC.properties").getScheduler();
-			scheduler.start();
-			PrintWriter out = new PrintWriter(new BufferedWriter(
+			//scheduler.start();
+			/*PrintWriter out = new PrintWriter(new BufferedWriter(
 					new FileWriter("C:\\Users\\kamal\\Music\\kk.txt", true)));
 			out.println("scheduler started");
-			out.close();
+			out.close();*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-    	
 	}
 
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value="/FormFill.html", method=RequestMethod.GET)
 	public String showForm(ModelMap model){
 		QuartzForm form = new QuartzForm();
 		model.addAttribute("FORM", form);
 		return "FormFill";
 	}
 
-	@RequestMapping(method=RequestMethod.POST)
-	public String processForm(@ModelAttribute(value="FORM") QuartzForm form,BindingResult result) throws SchedulerException{
+	@RequestMapping(value="/FormFill.html", method=RequestMethod.POST)
+	public ModelAndView processForm(@ModelAttribute(value="FORM") QuartzForm form,BindingResult result) throws SchedulerException{
+		String addJobMessage="";
 		if(result.hasErrors()){
 			System.out.println(result.getAllErrors().toString());
-			return "FormFill";
+			addJobMessage="There was an error in result verification";
+			return new ModelAndView("FormFill", "addJobMessage", addJobMessage);
+		}
+		if(!scheduler.isStarted()){
+			addJobMessage="schedular is not started yet - but ";
 		}
 		QuartzForm form1=(QuartzForm)form;
 		String startAt=form1.getStartDate()+" "+form1.getStartTime();
@@ -84,19 +86,13 @@ public class QuartzController{
                 //.startAt(futureDate(5, IntervalUnit.MINUTE))
                 //.endAt(dateOf(22, 0, 0)
                 //.repeatForever())
-                
     	
     	System.out.println("start time : "+trigger.getStartTime());
     	System.out.println("end time : "+trigger.getEndTime());
-    	
-    	//schedule it
-		/*Scheduler scheduler = new StdSchedulerFactory(
-				"C:\\Users\\kamal\\git\\kk1\\jdbc\\quartz_JDBC\\WebContent\\WEB-INF\\quartz_JDBC.properties")
-				.getScheduler();*/
-
     	scheduler.scheduleJob(job1, trigger);
-			
-		return "FormFill";
+
+    	addJobMessage+="job has been successfully added to schedular";
+    	return new ModelAndView("FormFill", "addJobMessage", addJobMessage);
 	}
 	
 }

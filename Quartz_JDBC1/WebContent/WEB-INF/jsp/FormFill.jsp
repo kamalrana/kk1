@@ -10,7 +10,7 @@
 	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
       <style type="text/css">
        body { font-size: 10px; /* for the widget natural size */ }
-        button.ui-datepicker-close {display: none;}​
+        button.ui-datepicker-close {display: none;}
         </style> 	
 	<script>
   $(function() {
@@ -47,13 +47,16 @@ $(document).ready(function() {
       showLeadingZero: true
       });
   });
+  
 	</script>
 	</head> 
 	<body>
+	<div style="border:2px solid black;float:left;border-color:yellow;">
 	<!-- <input type="button"  onclick="location.href='/Jobs.html'" value="Jobs" > -->
 		<h1><a href="Jobs.html">view jobs</a></h1><br />
+		<p>${addJobMessage}</p></br>
 		<form:form commandName="FORM" enctype="multipart/form-data" method="POST" >
-		<table width="723" height="216" border="0" cellspacing="10" style="font-size:15px">
+		<table  border="1" cellspacing="10" style="font-size:15px">
 			<th width="97">New Job</th>
 			<tr>
 			<td>Job Name</td>
@@ -106,8 +109,24 @@ $(document).ready(function() {
 			</table>
 			<tr><td colspan="2"><input type="submit" value="Save Changes" width="258"/></td></tr>
 		</form:form>
-		
-		<div style="border:1px solid black;min-height:125px;min-width:75px;">
-This div has min-height and min-width applied.</div>
+	</div>	
+<div style="border:1px solid black;border-color:black;margin-left:65%;margin-top: 3%;font-size:15px">
+<table style="border: 1px solid black;" cellspacing="10">
+<tr>
+<td>start schedular : </td><td><button type="button" id="startSchedular" onclick="location.href='/startSchedular'">Start Schedular</button></td>
+<td>${startMessage}</td>
+</tr>
+<tr></tr>
+<tr>
+<td>Pause schedular : </td><td><button type="button" id="pauseSchedular" onclick="location.href='/pauseSchedular'">Pause schedular</button></td>
+<td>${pauseMessage}</td>
+</tr>
+<tr></tr>
+<tr>
+<td>Stop schedular : </td><td><button type="button" id="stopSchedular" onclick="location.href='/stopSchedular'">Stop Schedular</button></td>
+<td>${stopMessage}</td>
+</tr>
+</table>		
+</div>
 </body>
 </html>
