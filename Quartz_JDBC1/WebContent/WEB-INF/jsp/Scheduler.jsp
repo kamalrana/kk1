@@ -52,10 +52,9 @@ $(document).ready(function() {
 	</head> 
 	<body>
 	<div style="border:2px solid black;float:left;border-color:yellow;">
-	<!-- <input type="button"  onclick="location.href='/Jobs.html'" value="Jobs" > -->
-		<h1><a href="Jobs.html">view jobs</a></h1><br />
+		<h1><a href="Jobs.html">view jobs</a></h1>
 		<p>${addJobMessage}</p></br>
-		<form:form commandName="FORM" enctype="multipart/form-data" method="POST" >
+		<form:form commandName="JobForm" action="addJob.html" method="POST" >
 		<table  border="1" cellspacing="10" style="font-size:15px">
 			<th width="97">New Job</th>
 			<tr>
@@ -113,18 +112,18 @@ $(document).ready(function() {
 <div style="border:1px solid black;border-color:black;margin-left:65%;margin-top: 3%;font-size:15px">
 <table style="border: 1px solid black;" cellspacing="10">
 <tr>
-<td>start schedular : </td><td><button type="button" id="startSchedular" onclick="location.href='/startSchedular'">Start Schedular</button></td>
-<td>${startMessage}</td>
+<td>start schedular : </td><td><button type="button" id="startSchedular" onclick="location.href='startScheduler.html'">Start Schedular</button></td>
+<%-- <td>${startMessage}</td> --%>
 </tr>
 <tr></tr>
 <tr>
-<td>Pause schedular : </td><td><button type="button" id="pauseSchedular" onclick="location.href='/pauseSchedular'">Pause schedular</button></td>
-<td>${pauseMessage}</td>
+<td>Pause schedular : </td><td><button type="button" id="pauseSchedular" onclick="location.href='pauseScheduler.html'">Pause schedular</button></td>
+<%-- <td>${pauseMessage}</td> --%>
 </tr>
 <tr></tr>
 <tr>
-<td>Stop schedular : </td><td><button type="button" id="stopSchedular" onclick="location.href='/stopSchedular'">Stop Schedular</button></td>
-<td>${stopMessage}</td>
+<td>Stop schedular : </td><td><button type="button" id="stopSchedular" onclick="location.href='stopScheduler.html'">Stop Schedular</button></td>
+<%-- <td>${stopMessage}</td> --%>
 </tr>
 </table>		
 </div>

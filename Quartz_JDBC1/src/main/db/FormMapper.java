@@ -15,6 +15,7 @@ public class FormMapper implements RowMapper<QuartzForm> {
 		      quartzForm.setTriggerName(rs.getString("TRIGGER_NAME"));
 		      quartzForm.setStartDate(rs.getString("START_TIME"));
 		      quartzForm.setEndDate(rs.getString("END_TIME"));
+		      quartzForm.setJobState(rs.getString("TRIGGER_STATE"));
 		      return quartzForm;
 		      
 		   }

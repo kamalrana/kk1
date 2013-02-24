@@ -9,6 +9,7 @@ public class QuartzForm {
 	private String jobClass;
 	private String group;
 	private String triggerName;
+	private String jobState;
 	private String interval;
 	private String repeate;
 	private String startNow;
@@ -88,6 +89,12 @@ public class QuartzForm {
 	}
 	public void setJobKey(JobKey jobKey) {
 		this.jobKey = jobKey;
+	}
+	public String getJobState() {
+		return jobState;
+	}
+	public void setJobState(String jobState) {
+		this.jobState = jobState;
 	}
 	
 }

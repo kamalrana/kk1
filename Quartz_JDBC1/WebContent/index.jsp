@@ -15,6 +15,6 @@
   <li><a href="forms/Jobs.html">Simple Form</a></li>
 </ul> -->
 <%-- <jsp:forward page="forms/FormFill.html"></jsp:forward> --%>
-<% response.sendRedirect("forms/FormFill.html"); %>
+<% response.sendRedirect("forms/Scheduler.html"); %>
 </body>
 </html>

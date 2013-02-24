@@ -15,7 +15,7 @@
 	
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
-	
+
 	<!-- Resolves view names to protected .jsp resources within the /WEB-INF/views directory -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"/>

@@ -13,7 +13,7 @@ import org.quartz.JobExecutionException;
 public class RunMeJob implements Job {
 	public void execute(JobExecutionContext context)
 			throws JobExecutionException {
-		try {
+/*		try {
 			PrintWriter out = new PrintWriter(new BufferedWriter(
 					new FileWriter("C:\\Users\\kamal\\Music\\kk.txt", true)));
 			out.println("running : " + new Date() + " job name : "
@@ -22,7 +22,7 @@ public class RunMeJob implements Job {
 			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 		System.out.println("runniong : " + new Date() + " job name : "
 				+ context.getJobDetail().getKey() + " & trigger is : "
 				+ context.getTrigger().getKey());

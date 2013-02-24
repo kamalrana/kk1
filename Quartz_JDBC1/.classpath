@@ -20,7 +20,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-validator-4.0.2.GA.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.inject.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl-1.0.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jstl-1.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.14.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.springframework.aop-3.1.1.RELEASE.jar"/>
@@ -63,6 +62,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-web-3.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/spring-webmvc-3.0.3.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
